@@ -106,3 +106,7 @@ def delete_item(item_id: int, db: Session = Depends(get_db)):
 @app.get("/")
 def root():
     return {"message": "CRUD API is running", "docs": "/docs"}
+
+@app.get("/health")
+def health_check():
+    return {"status": "healthy", "database": "connected", "service": "crud-api"}
